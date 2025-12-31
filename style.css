@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: none;
+}
+
+body {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden; /* Prevents scrollbars */
+  background-color: #1a1a1a;
+}
+
+.scoreBoard {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-family: "Arial", sans-serif;
+  font-size: 24px;
+  color: white;
+
+  z-index: 10;
+
+  pointer-events: none;
+}
+canvas {
+  width: 100vh;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  image-rendering: pixelated;
+}
