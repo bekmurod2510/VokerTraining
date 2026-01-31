@@ -1,13 +1,49 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Tunnel Dodge</title>
+    <title>Voker Training</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <canvas id="game"> This is canvas element </canvas>
     <div class="scoreBoard">Your score : <span id="score">0</span></div>
+    <div class="voker-board">
+      <div class="elements">
+        <div class="ImageContainer">
+          <img src="images/quas.png" alt="Quas" width="80px" height="80px" />
+          <div>
+            <p class="Key">Q</p>
+          </div>
+        </div>
+
+        <div class="ImageContainer">
+          <img src="images/wex.png" alt="Wex" width="80px" height="80px" />
+          <div>
+            <p class="Key">W</p>
+          </div>
+        </div>
+
+        <div class="ImageContainer">
+          <img src="images/exort.png" alt="Exort" width="80px" height="80px" />
+          <div>
+            <p class="Key">E</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="elements">
+        <div class="spellSpot"></div>
+        <div class="spellSpot"></div>
+      </div>
+
+      <div class="ImageContainer">
+        <img src="images/invoke.png" alt="Invoke" width="80px" height="80px" />
+        <div>
+          <p class="Key">R</p>
+        </div>
+      </div>
+    </div>
     <script type="module" src="js/game.js"></script>
   </body>
 </html>

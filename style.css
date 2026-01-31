@@ -24,6 +24,46 @@ body {
 
   pointer-events: none;
 }
+
+.voker-board {
+  background-color: #1a1a1a;
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  width: fit-content;
+  color: white;
+
+  display: flex;
+  gap: 8px;
+}
+
+.ImageContainer {
+  position: relative;
+}
+
+.Key {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  background-color: white;
+  color: black;
+  padding: 3px;
+}
+
+.elements {
+  display: flex;
+  gap: 8px;
+}
+
+.spellSpot {
+  width: 80px;
+  height: 80px;
+
+  border: 1px gray solid;
+}
+
 canvas {
   width: 100vh;
   height: 100vh;

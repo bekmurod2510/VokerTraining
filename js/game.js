@@ -1,7 +1,7 @@
-import { Obstacle } from "./Obstacle.js";
+import { Spells } from "./Spells.js";
 import { updateScore } from "./score.js";
 
-let obstacles = [];
+let spells = [];
 let framesUntilNextSpawn = 0;
 
 const canvas = document.getElementById("game");
@@ -22,18 +22,18 @@ function setupCanvas() {
 
 function handleObstacles() {
   if (framesUntilNextSpawn <= 0) {
-    obstacles.push(new Obstacle(window.innerWidth));
-    framesUntilNextSpawn = 300;
+    spells.push(new Spells(window.innerWidth));
+    framesUntilNextSpawn = 150;
   }
   framesUntilNextSpawn--;
 
-  obstacles.forEach((obs, index) => {
-    obs.update();
-    obs.draw(ctx);
+  spells.forEach((spell, index) => {
+    spell.update();
+    spell.draw(ctx);
 
-    if (obs.isOffScreen(window.innerHeight)) {
+    if (spell.isOffScreen(window.innerHeight)) {
       updateScore(1);
-      obstacles.splice(index, 1);
+      spells.splice(index, 1);
     }
   });
 }

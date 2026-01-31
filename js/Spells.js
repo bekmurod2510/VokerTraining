@@ -1,5 +1,5 @@
-export class Obstacle {
-  constructor(canvasWidth, imageElement) {
+export class Spells {
+  constructor(canvasWidth) {
     this.image = imageElement;
     this.width = 50;
     this.height = 50;
