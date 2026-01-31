@@ -1,10 +1,11 @@
 export class Obstacle {
-  constructor(canvasWidth) {
-    this.width = 40 + Math.random() * 60; // any width between 40 and 100
-    this.height = 20;
+  constructor(canvasWidth, imageElement) {
+    this.image = imageElement;
+    this.width = 50;
+    this.height = 50;
     this.x = Math.random() * (canvasWidth - this.width);
     this.y = -50; //starting position (above the canvas)
-    this.speed = 4 + Math.random() * 6; // different speeds
+    this.speed = 2; // different speeds
   }
 
   update() {
