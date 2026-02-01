@@ -16,12 +16,28 @@ const SPELL_DATA = [
   { name: "deafeningBlast", path: "./images/deafeningBlast.png" },
 ];
 
+const spellLookup = {
+  qqq: "coldSnap",
+  qqw: "ghostWalk",
+  eqq: "iceWall",
+  qww: "tornado",
+  eqw: "deafeningBlast",
+  eeq: "forgeSpirit",
+  www: "emp",
+  eww: "chaosMeteor",
+  eew: "alacrity",
+  eee: "sunStrike",
+};
+
 SPELL_DATA.forEach((data) => {
   const img = new Image();
   img.src = data.path;
   spellLibrary[data.name] = img;
 });
 
+const SpellBuffer = [];
+const ElementBuffer = [];
+/**====================================== */
 let spells = [];
 let MaximumFramesBetweenSpells = 200;
 let framesUntilNextSpawn = 0;
@@ -53,6 +69,7 @@ function handleObstacles() {
     const loadedImg = spellLibrary[randomSpellData.name];
 
     spells.push(new Spells(window.innerWidth, loadedImg, speed));
+    SpellBuffer.push(randomSpellData.name);
     framesUntilNextSpawn = MaximumFramesBetweenSpells;
     if (MaximumFramesBetweenSpells > 60) {
       MaximumFramesBetweenSpells -= 5;
@@ -68,8 +85,7 @@ function handleObstacles() {
     spells[i].draw(ctx);
 
     if (spells[i].isOffScreen(window.innerHeight)) {
-      updateScore(1);
-      spells.splice(i, 1);
+      alert("You lost");
     }
   }
 }
@@ -84,5 +100,44 @@ function gameLoop() {
 
 //In case somebody resizes the browser window
 window.addEventListener("resize", setupCanvas);
+
+//Elements buffer logic
+function KeyboardPress(event) {
+  if (
+    event.code == "KeyQ" ||
+    event.code == "KeyW" ||
+    event.code == "KeyE" ||
+    event.code == "KeyR"
+  ) {
+    //Invoke logic
+    if (event.code == "KeyR") {
+      const sorted = [...ElementBuffer].sort();
+      const key = sorted.join("");
+
+      const targetSpellName = spellLookup[key];
+
+      if (targetSpellName == SpellBuffer[0]) {
+        spells.shift();
+        SpellBuffer.shift();
+        updateScore(1);
+      }
+      return;
+    }
+
+    if (ElementBuffer.length == 3) {
+      ElementBuffer.shift();
+    }
+    if (event.code == "KeyQ") {
+      ElementBuffer.push("q");
+    } else if (event.code == "KeyW") {
+      ElementBuffer.push("w");
+    } else if (event.code == "KeyE") {
+      ElementBuffer.push("e");
+    }
+  }
+}
+//listening to keyboard events for elements
+window.addEventListener("keydown", KeyboardPress);
+
 setupCanvas();
 gameLoop();
