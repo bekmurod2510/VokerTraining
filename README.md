@@ -1,12 +1,13 @@
-# Invoker Trainer 🎮
+# Invoker Trainer 
 
 Invoker Trainer is a simple web-based game designed to help players learn and memorize Invoker’s spell combinations through fast, repetitive practice.
 
 The goal is to build muscle memory for the **Q / W / E** orb system in a fun, reaction-based format.
 
 ---
-
-## 🧠 How It Works
+![Game Screenshot](assets/image.png)
+---
+##  How It Works
 
 - Spells fall from the top of the screen one at a time
 - Each spell corresponds to a specific **Q / W / E** combination
@@ -17,8 +18,14 @@ The goal is to build muscle memory for the **Q / W / E** orb system in a fun, re
 The game tracks inputs in real time and gives immediate feedback.
 
 ---
+## Tech Stack 
+   - HTML
+   - CSS
+   - Canvas
+   - JavaScript
+---
 
-## 🎯 Features
+##  Features
 
 - Real-time key input tracking (Q, W, E)
 - Score system to measure accuracy and speed
@@ -27,7 +34,7 @@ The game tracks inputs in real time and gives immediate feedback.
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 1. Clone the repository:
    ```bash
